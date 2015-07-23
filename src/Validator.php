@@ -29,7 +29,7 @@ class Validator
     public static function isValid(PersonalCodeInterface $personalCode)
     {
         $id = $personalCode->getId();
-        if (strlen($id) !== 11 || ! is_integer($id)) {
+        if (strlen($id) !== 11 || ! ctype_digit($id)) {
             return false;
         }
 
