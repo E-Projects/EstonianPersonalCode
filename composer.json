@@ -4,5 +4,8 @@
     "psr-4": {
       "EProjects\\EstonianPersonalCode\\": "src/"
     }
+  },
+  "require": {
+    "php": ">=5.3"
   }
 }

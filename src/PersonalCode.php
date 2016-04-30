@@ -17,8 +17,9 @@ class PersonalCode implements PersonalCodeInterface
      */
     private $personalCode;
 
-    public function __construct( $personalCode )
+    public function __construct($personalCode)
     {
+
         $this->personalCode = $personalCode;
     }
 
@@ -27,6 +28,7 @@ class PersonalCode implements PersonalCodeInterface
      */
     public function getId()
     {
+
         return $this->personalCode;
     }
 }
