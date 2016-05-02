@@ -58,44 +58,14 @@ class Age
     }
 
     /**
-     * @return DateTime
-     */
-    public function getDateTimeToday()
-    {
-
-        return new DateTime('today');
-    }
-
-    /**
-     * @return DateTime
-     */
-    public function getBirthDateTime()
-    {
-
-        return new DateTime($this->getBirthday());
-    }
-
-    /**
-     * @param $date1
-     * @param $date2
-     *
-     * @return mixed
-     */
-    public function getDateTimeDiff($date1, $date2)
-    {
-
-        return $date1->diff($date2);
-    }
-
-    /**
      * @return int
      */
     public function getAgeInDays()
     {
 
-        $birthDate = $this->getBirthDateTime();
-        $today = $this->getDateTimeToday();
+        $birthDate = new DateTime($this->getBirthday());
+        $today = new DateTime('today');
 
-        return $this->getDateTimeDiff($birthDate, $today)->days;
+        return $birthDate->diff($today)->days;
     }
 }
