@@ -13,8 +13,6 @@ class Age
     private $personalCode;
 
     /**
-     * Age constructor.
-     *
      * @param PersonalCodeInterface $personalCode
      */
     public function __construct(PersonalCodeInterface $personalCode)
@@ -24,6 +22,8 @@ class Age
     }
 
     /**
+     * Returns birthday date
+     *
      * @return string
      */
     public function getBirthday()
@@ -35,6 +35,20 @@ class Age
             substr($this->personalCode, 5, 2);
 
         return $birthday;
+    }
+
+    /**
+     * Returns person age in days
+     *
+     * @return int
+     */
+    public function getAgeInDays()
+    {
+
+        $birthDate = new DateTime($this->getBirthday());
+        $today = new DateTime('today');
+
+        return $birthDate->diff($today)->days;
     }
 
     /**
@@ -55,17 +69,5 @@ class Age
         $firstDigit = substr($this->personalCode, 0, 1);
 
         return $century[$firstDigit][1];
-    }
-
-    /**
-     * @return int
-     */
-    public function getAgeInDays()
-    {
-
-        $birthDate = new DateTime($this->getBirthday());
-        $today = new DateTime('today');
-
-        return $birthDate->diff($today)->days;
     }
 }
